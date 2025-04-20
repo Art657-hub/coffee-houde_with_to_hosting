@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="login-form" id="loginForm">
+            <h2>Вход в админ-панель</h2>
+            <input type="password" id="password" placeholder="Введите пароль">
+            <button onclick="checkPassword()">Войти</button>
+        </div>
+
+        <div class="admin-panel" id="adminPanel" style="display: none;">
+            <h2>Добавление нового блюда</h2>
+            <form id="menuForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>Тип блюда:</label>
+                    <select name="type" required>
+                        <option value="0">Напиток</option>
+                        <option value="1">Десерт</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Название (англ):</label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Название (рус):</label>
+                    <input type="text" name="nameru" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Описание (англ):</label>
+                    <textarea name="description" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Описание (рус):</label>
+                    <textarea name="descriptionru" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Стоимость:</label>
+                    <input type="number" name="summ" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Изображение:</label>
+                    <input type="file" name="urlimg" accept="image/*" required>
+                </div>
+
+                <button type="submit">Добавить блюдо</button>
+            </form>
+            <div id="message" style="display: none; margin-top: 20px; padding: 10px; border-radius: 5px;"></div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html> 

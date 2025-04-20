@@ -1,0 +1,31 @@
+# robots.txt для Coffee House
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /menu.html
+Allow: /promotions.html
+Allow: /style.css
+Allow: /script.js
+Allow: /translations.js
+Allow: /menu_translations.js
+Allow: /fonts/
+
+# Запрещаем доступ к админ-панели и служебным файлам
+Disallow: /admin/
+Disallow: /get_menu_items.php
+Disallow: /add_menu_item.php
+Disallow: /server.js
+Disallow: /package.json
+Disallow: /node_modules/
+
+# Запрещаем доступ к временным файлам и бэкапам
+Disallow: /*.tmp$
+Disallow: /*.bak$
+Disallow: /*.old$
+
+# Указываем карту сайта
+Sitemap: https://coffee-house.online/sitemap.xml
+
+# Указываем задержку между запросами (в секундах)
+Crawl-delay: 10 

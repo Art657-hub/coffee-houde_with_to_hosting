@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House - Меню</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://coffee-house.online/index.html">
+    <meta property="og:title" content="Coffee House - Уютное место с ароматным кофе">
+    <meta property="og:description"
+        content="Добро пожаловать в Coffee House - уютное место с ароматным кофе и свежей выпечкой.">
+    <meta property="og:image" content="https://coffee-house.online/logo.ico">
+    <meta property="og:url" content="https://coffee-house.online/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coffee House - Уютное место с ароматным кофе">
+    <meta name="twitter:description"
+        content="Добро пожаловать в Coffee House - уютное место с ароматным кофе и свежей выпечкой.">
+    <meta name="twitter:image" content="https://coffee-house.online/logo.ico">
+    <meta name="theme-color" content="#2b1810">
+    <link rel="icon" href="https://coffee-house.online/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">Pam<sup>™</sup></a>
+        <button class="burger-menu" aria-label="Меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu">
+            <a href="index.html" data-translate="home">ГЛАВНАЯ</a>
+            <a href="about.html" data-translate="about">О НАС</a>
+            <a href="menu.html" class="active" data-translate="menu">МЕНЮ</a>
+            <a href="promotions.html" data-translate="promotions">АКЦИИ</a>
+            <a href="#contacts" data-translate="contacts">КОНТАКТЫ</a>
+            <button id="languageToggle" class="language-toggle">EN</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-hero">
+            <div class="hero-content">
+                <h1 data-translate="menuTitle">НАШЕ МЕНЮ</h1>
+                <p data-translate="menuHeroText">Откройте для себя богатство вкусов нашей кофейни</p>
+            </div>
+        </section>
+
+        <section class="menu-content">
+            <h2 data-translate="drinks">НАПИТКИ</h2>
+            <div class="menu-items" id="drinks-container">
+                <!-- Напитки будут загружены здесь -->
+            </div>
+        </section>
+
+        <section class="menu-content">
+            <h2 data-translate="desserts">ДЕСЕРТЫ</h2>
+            <div class="menu-items" id="desserts-container">
+                <!-- Десерты будут загружены здесь -->
+            </div>
+        </section>
+
+        <footer class="expanded-footer" id="contacts">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="contactUs">СВЯЖИТЕСЬ С НАМИ</h3>
+                    <p>Email: info@coffee-house.online</p>
+                    <p data-translate="phone">Телефон: +7 (928) 902-44-20</p>
+                    <p data-translate="address">Адрес: ул. Кофейная, 15</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="workHours">ЧАСЫ РАБОТЫ</h3>
+                    <p data-translate="weekdays">Пн-Пт: 8:00 - 22:00</p>
+                    <p data-translate="weekends">Сб-Вс: 9:00 - 23:00</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="followUs">СЛЕДИТЕ ЗА НАМИ</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-translate="footer">© 2024 Coffee House. Все права защищены.</p>
+            </div>
+        </footer>
+
+        <script src="translations.js"></script>
+        <script src="menu_translations.js"></script>
+        <script src="script.js"></script>
+        <script>
+            // Функция для создания HTML элемента меню
+            function createMenuItem(item) {
+                const currentLang = localStorage.getItem('language') || 'ru';
+                const key = item.name.replace(/\s+/g, '');
+                return `
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="${item.urlimg}" alt="${currentLang === 'ru' ? item.nameru : item.name}">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 data-translate="${key}">${currentLang === 'ru' ? item.nameru : item.name}</h3>
+                            <span class="price">${item.summ} ₽</span>
+                        </div>
+                        <p data-translate="${key}Desc">${currentLang === 'ru' ? item.descriptionru : item.description}</p>
+                    </div>
+                </div>
+            `;
+            }
+
+            // Функция для загрузки данных меню
+            async function loadMenu() {
+                try {
+                    const response = await fetch('get_menu_items.php');
+                    const data = await response.json();
+
+                    // Заполняем контейнеры напитками и десертами
+                    const drinksContainer = document.getElementById('drinks-container');
+                    const dessertsContainer = document.getElementById('desserts-container');
+
+                    drinksContainer.innerHTML = data.drinks.map(createMenuItem).join('');
+                    dessertsContainer.innerHTML = data.desserts.map(createMenuItem).join('');
+
+                    // После загрузки меню обновляем переводы
+                    loadMenuTranslations();
+                } catch (error) {
+                    console.error('Ошибка при загрузке меню:', error);
+                }
+            }
+
+            // Загружаем меню при загрузке страницы
+            document.addEventListener('DOMContentLoaded', () => {
+                // Устанавливаем начальный язык из localStorage
+                const currentLang = localStorage.getItem('language') || 'ru';
+                document.documentElement.lang = currentLang;
+
+                // Устанавливаем текст кнопки переключения языка
+                const languageToggle = document.getElementById('languageToggle');
+                if (languageToggle) {
+                    languageToggle.textContent = currentLang === 'ru' ? 'EN' : 'RU';
+                }
+
+                loadMenu();
+            });
+        </script>
+</body>
+
+</html>

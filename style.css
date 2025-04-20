@@ -1,0 +1,1344 @@
+@font-face {
+    font-family: 'Baskerville';
+    src: url('./fonts/BaskervilleBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Baskerville', serif;
+    background-color: #2b1810;
+    color: #ffffff;
+    line-height: 1.6;
+    min-width: 320px;
+}
+
+header {
+    background-color: rgba(43, 24, 16, 0.9);
+    padding: 0.5rem 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #F5F5F5;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.logo sup {
+    font-size: 0.8rem;
+    vertical-align: super;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #a67c52;
+}
+
+nav a.active {
+    color: #a67c52;
+}
+
+.language-toggle {
+    background-color: transparent;
+    border: 2px solid #a67c52;
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Baskerville', serif;
+    border-radius: 4px;
+}
+
+.language-toggle:hover {
+    background-color: #a67c52;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Общие стили для всех кнопок */
+.btn, .btn-lang {
+    background-color: #8b4513;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Baskerville', serif;
+    border-radius: 4px;
+}
+
+.btn:hover, .btn-lang:hover {
+    background-color: #a67c52;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Специальные стили для кнопки языка */
+.btn-lang {
+    background-color: transparent;
+    border: 2px solid #a67c52;
+    padding: 0.5rem 1.5rem;
+}
+
+/* Общие стили для всех hero-секций */
+.hero, .about-hero, .menu-hero, .promotions-hero {
+    min-height: 50vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    position: relative;
+}
+
+/* Стили для hero контента на всех страницах */
+.hero-content {
+    max-width: 600px;
+    background-color: rgba(43, 24, 16, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    margin: 0 auto;
+    height: auto;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+}
+
+.hero-content .btn {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* Стили для кнопок */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background-color: rgba(166, 124, 82, 0.2);
+    border: 1px solid rgba(166, 124, 82, 0.3);
+    border-radius: 25px;
+    color: #a67c52;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: rgba(166, 124, 82, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content .btn {
+    margin-top: 2rem;
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    background-color: rgba(166, 124, 82, 0.3);
+    color: #ffffff;
+    border: 2px solid rgba(166, 124, 82, 0.5);
+}
+
+.hero-content .btn:hover {
+    background-color: rgba(166, 124, 82, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Адаптивные стили для кнопок */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+        min-height: 180px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content .btn {
+        padding: 0.7rem 1.8rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 1.2rem;
+        min-height: 160px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-content .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Специфичные фоновые изображения */
+.hero {
+    background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop');
+}
+
+.about-hero {
+    background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=2070&auto=format&fit=crop');
+}
+
+.menu-hero {
+    background-image: url('https://images.unsplash.com/photo-1482350325005-eda5e677279b?q=80&w=1974&auto=format&fit=crop');
+}
+
+/* Медиа запросы для hero-секций */
+@media (max-width: 768px) {
+    .nav-list a {
+        font-size: 1.1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .btn, .btn-lang {
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-list a {
+        font-size: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .btn, .btn-lang {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Общие стили для всех основных разделов */
+.features, .about-content, .menu-content {
+    padding: 4rem 10%;
+    background-color: rgba(26, 15, 10, 0.5);
+}
+
+.feature-item, .about-item, .menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6rem;
+    gap: 4rem;
+    background-color: rgba(166, 124, 82, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(166, 124, 82, 0.2);
+}
+
+.feature-item:hover, .about-item:hover, .menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature-item.reverse, .about-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-image, .about-image {
+    flex: 1;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.feature-image::after, .about-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+}
+
+.feature-image img, .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.feature-item:hover .feature-image img, .about-item:hover .about-image img {
+    transform: scale(1.1);
+}
+
+.feature-text, .about-text {
+    flex: 1;
+    padding: 2rem;
+}
+
+.feature-text h2, .about-text h2, .menu-category h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.feature-text h2::after, .about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #a67c52;
+    transition: width 0.3s ease;
+}
+
+.feature-item:hover .feature-text h2::after, .about-item:hover .about-text h2::after {
+    width: 100px;
+}
+
+.feature-text p, .about-text p, .menu-item p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для кнопок в основных разделах */
+.feature-text .btn, .about-text .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background-color: rgba(166, 124, 82, 0.2);
+    border: 1px solid rgba(166, 124, 82, 0.3);
+    border-radius: 25px;
+    color: #a67c52;
+    transition: all 0.3s ease;
+}
+
+.feature-text .btn:hover, .about-text .btn:hover {
+    background-color: rgba(166, 124, 82, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Адаптивные стили для основных разделов */
+@media (max-width: 768px) {
+    .features, .about-content, .menu-content {
+        padding: 2rem 1rem;
+    }
+
+    .feature-item, .about-item, .menu-item {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .feature-item.reverse, .about-item.reverse {
+        flex-direction: column;
+    }
+
+    .feature-image, .about-image {
+        width: 100%;
+        height: 250px;
+    }
+
+    .feature-text, .about-text {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .feature-text h2, .about-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .feature-text p, .about-text p {
+        font-size: 1.1rem;
+    }
+
+    .feature-text h2::after, .about-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.latte-art {
+    background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=2070&auto=format&fit=crop');
+}
+
+.coffee-beans {
+    background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=2061&auto=format&fit=crop');
+}
+
+.croissant {
+    background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=2026&auto=format&fit=crop');
+}
+
+footer {
+    background-color: #1a0f0a;
+    padding: 4rem 10%;
+    margin-top: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.footer-section {
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-section h3 {
+    color: #a67c52;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.footer-section p {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(166, 124, 82, 0.2);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-bottom p {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.social-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #a67c52;
+}
+
+/* Медиа запросы */
+@media (max-width: 768px) {
+    /* Хедер */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: rgba(43, 24, 16, 0.95);
+        padding: 0.5rem 1rem;
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        z-index: 1001;
+    }
+
+    .burger-menu {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(43, 24, 16, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    /* Главная страница */
+    .hero, .about-hero, .menu-hero, .promotions-hero {
+        min-height: 40vh;
+        padding: 0 5%;
+    }
+
+    .features {
+        padding: 2rem 1rem;
+        margin-top: 60px;
+    }
+
+    .feature-item {
+        flex-direction: column;
+        margin-bottom: 2rem;
+        gap: 2rem;
+    }
+
+    .feature-item.reverse {
+        flex-direction: column;
+    }
+
+    .feature-text {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .feature-image {
+        width: 100%;
+        height: 250px;
+    }
+
+    .feature-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .feature-text p {
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
+
+    .btn {
+        width: auto;
+        margin-top: 1rem;
+        display: inline-block;
+    }
+
+    /* Футер */
+    footer {
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-section {
+    text-align: center;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    .footer-bottom {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+}
+
+/* Исправление отступов для всех страниц */
+main {
+    padding-top: 60px;
+}
+
+/* Стили для страницы О нас */
+.about-hero {
+    height: 60vh;
+    background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    padding-top: 60px;
+    margin-top: 0;
+}
+
+.about-content {
+    padding: 4rem 10%;
+}
+
+.about-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 4rem;
+}
+
+.about-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.story-image {
+    background-image: url('https://images.unsplash.com/photo-1517248135467-4cbfdae4d4e5?q=80&w=2070&auto=format&fit=crop');
+}
+
+.mission-image {
+    background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop');
+}
+
+.team-image {
+    background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop');
+}
+
+/* Стили для страницы Меню */
+.menu-hero {
+    height: 60vh;
+    background-image: url('https://images.unsplash.com/photo-1482350325005-eda5e677279b?q=80&w=1974&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    padding-top: 60px;
+    margin-top: 0;
+}
+
+.menu-content {
+    padding: 4rem 10%;
+    padding-top: 3rem;
+    padding-bottom: 0px;
+}
+
+.menu-category {
+    background-color: rgba(166, 124, 82, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 4rem;
+    border: 1px solid rgba(166, 124, 82, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.menu-category h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #a67c52;
+    transition: width 0.3s ease;
+}
+
+.menu-category:hover h2::after {
+    width: 100px;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.menu-item {
+    position: relative;
+    background-color: rgba(166, 124, 82, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border: 1px solid rgba(166, 124, 82, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background-color: rgba(166, 124, 82, 0.1);
+}
+
+.menu-item-content {
+    flex: 1;
+    padding: 0;
+}
+
+.menu-item-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+}
+
+.menu-item-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+}
+
+.menu-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-item:hover .menu-item-image img {
+    transform: scale(1.1);
+}
+
+.menu-item-header {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item h3 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+
+.menu-item h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #a67c52;
+    transition: width 0.3s ease;
+}
+
+.menu-item:hover h3::after {
+    width: 60px;
+}
+
+.price {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    color: #5c3a2e;
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    background-color: #a67c52;
+    border-radius: 15px;
+    border: 1px solid rgba(166, 124, 82, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Стили для страницы акций */
+.promotions-hero {
+    background-image: url('https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    padding-top: 60px;
+    margin-top: 0;
+}
+
+.promotions {
+    padding: 4rem 10%;
+    background-color: rgba(26, 15, 10, 0.5);
+}
+
+.promotion-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6rem;
+    gap: 4rem;
+    background-color: rgba(166, 124, 82, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(166, 124, 82, 0.2);
+}
+
+.promotion-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.promotion-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.promotion-image {
+    flex: 1;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.promotion-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+}
+
+.promotion-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.promotion-item:hover .promotion-image img {
+    transform: scale(1.1);
+}
+
+.promotion-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.promotion-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+
+.promotion-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #a67c52;
+    transition: width 0.3s ease;
+}
+
+.promotion-item:hover .promotion-content h2::after {
+    width: 100px;
+}
+
+.promotion-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #e0e0e0;
+    line-height: 1.8;
+}
+
+.promotion-date {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: rgba(166, 124, 82, 0.2);
+    border-radius: 25px;
+    color: #a67c52;
+    border: 1px solid rgba(166, 124, 82, 0.3);
+    transition: all 0.3s ease;
+}
+
+.promotion-item:hover .promotion-date {
+    background-color: rgba(166, 124, 82, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Адаптивные стили для страницы акций */
+@media (max-width: 768px) {
+    .promotions {
+        padding: 2rem 1rem;
+    }
+
+    .promotion-item,
+    .promotion-item.reverse {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .promotion-image {
+        width: 100%;
+        height: 250px;
+    }
+
+    .promotion-content {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .promotion-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .promotion-content p {
+        font-size: 1.1rem;
+    }
+
+    .promotion-date {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .promotion-content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Бургер-меню */
+.burger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #F5F5F5;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    /* Хедер */
+    header {
+        padding: 0.5rem 1rem;
+        height: 60px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        z-index: 1001;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(43, 24, 16, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .burger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    nav a {
+        font-size: 1.2rem;
+        padding: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .language-toggle {
+        margin-top: 1rem;
+        width: 80%;
+        max-width: 200px;
+    }
+
+    /* Общие стили для всех страниц */
+    main {
+        padding-top: 60px;
+    }
+
+    .hero-content,
+    .about-hero,
+    .menu-hero,
+    .promotions-hero {
+        padding: 6rem 1rem;
+        min-height: calc(100vh - 60px);
+        margin-top: 60px;
+    }
+
+    /* Стили для футера */
+    footer {
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    .footer-bottom {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .menu-items {
+        grid-template-columns: 1fr;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    .menu-item {
+        flex-direction: column;
+        padding: 1rem;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .menu-item-image {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 1rem;
+    }
+
+    .menu-item-content {
+        width: 100%;
+        padding: 0;
+    }
+
+    .menu-item-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .menu-item h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .menu-item h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .price {
+        font-size: 1.2rem;
+        margin: 0 auto;
+    }
+
+    .menu-item p {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+/* Медиа-запросы для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-content {
+        max-width: 80%;
+    }
+
+    .feature-item {
+        gap: 2rem;
+    }
+
+    .feature-text {
+        width: 50%;
+    }
+
+    .feature-image {
+        width: 50%;
+    }
+}
+
+/* Стили для изображений в разделе features */
+.menu-image {
+    background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    height: 400px;
+    transition: transform 0.3s ease;
+}
+
+.about-image {
+    background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    height: 400px;
+    transition: transform 0.3s ease;
+}
+
+.promotions-image {
+    background-image: url('https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    height: 400px;
+    transition: transform 0.3s ease;
+}
+
+.feature-image:hover {
+    transform: scale(1.05);
+}
+
+/* Адаптивные стили для изображений */
+@media (max-width: 768px) {
+    .menu-image,
+    .about-image,
+    .promotions-image {
+        display: none;
+        height: 250px;
+        margin: 1rem 0;
+    }
+}
+
+/* Стили для админ-панели */
+.admin-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(26, 15, 10, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.login-form, .admin-panel {
+    text-align: center;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid #a67c52;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #a67c52;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #a67c52;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+button {
+    background-color: #a67c52;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #8b5e3c;
+    transform: translateY(-2px);
+}
+
+/* Адаптивные стили для админ-панели */
+@media (max-width: 768px) {
+    .admin-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.6rem;
+    }
+}

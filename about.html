@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House - О нас</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://coffee-house.online/index.html">
+    <meta property="og:title" content="Coffee House - Уютное место с ароматным кофе">
+    <meta property="og:description" content="Добро пожаловать в Coffee House - уютное место с ароматным кофе и свежей выпечкой.">
+    <meta property="og:image" content="https://coffee-house.online/logo.ico">
+    <meta property="og:url" content="https://coffee-house.online/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coffee House - Уютное место с ароматным кофе">
+    <meta name="twitter:description" content="Добро пожаловать в Coffee House - уютное место с ароматным кофе и свежей выпечкой.">
+    <meta name="twitter:image" content="https://coffee-house.online/logo.ico">
+    <meta name="theme-color" content="#2b1810">
+    <link rel="icon" href="https://coffee-house.online/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Pam<sup>™</sup></a>
+        <button class="burger-menu" aria-label="Меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu">
+            <a href="index.html" data-translate="home">ГЛАВНАЯ</a>
+            <a href="about.html" class="active" data-translate="about">О НАС</a>
+            <a href="menu.html" data-translate="menu">МЕНЮ</a>
+            <a href="promotions.html" data-translate="promotions">АКЦИИ</a>
+            <a href="#contacts" data-translate="contacts">КОНТАКТЫ</a>
+            <button id="languageToggle" class="language-toggle">EN</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="hero-content">
+                <h1 data-translate="aboutTitle">НАША ИСТОРИЯ</h1>
+                <p data-translate="aboutHeroText">Мы создаем уютную атмосферу и превосходный кофе с 2010 года</p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <div class="about-item">
+                <div class="about-image story-image"></div>
+                <div class="about-text">
+                    <h2 data-translate="ourStory">НАША ИСТОРИЯ</h2>
+                    <p data-translate="storyText">Наша кофейня начала свой путь с небольшого помещения и большой мечты. Сегодня мы - любимое место встреч и отдыха для сотен людей. Мы постоянно совершенствуемся, но неизменным остается одно - наша любовь к кофе и забота о каждом госте.</p>
+                </div>
+            </div>
+
+            <div class="about-item reverse">
+                <div class="about-text">
+                    <h2 data-translate="ourMission">НАША МИССИЯ</h2>
+                    <p data-translate="missionText">Мы стремимся создавать не просто кофейню, а место, где каждый может найти минуту спокойствия, насладиться превосходным кофе и получить заряд энергии для новых свершений.</p>
+                </div>
+                <div class="about-image mission-image"></div>
+            </div>
+
+            <div class="about-item">
+                <div class="about-image team-image"></div>
+                <div class="about-text">
+                    <h2 data-translate="ourTeam">НАША КОМАНДА</h2>
+                    <p data-translate="teamText">Наша команда - это профессионалы, влюбленные в свое дело. Каждый бариста проходит специальное обучение и постоянно совершенствует свои навыки, чтобы радовать вас идеальным кофе.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="expanded-footer" id="contacts">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="contactUs">СВЯЖИТЕСЬ С НАМИ</h3>
+                <p>Email: info@coffee-house.online</p>
+                <p data-translate="phone">Телефон: +7 (928) 902-44-20</p>
+                <p data-translate="address">Адрес: ул. Кофейная, 15</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="workHours">ЧАСЫ РАБОТЫ</h3>
+                <p data-translate="weekdays">Пн-Пт: 8:00 - 22:00</p>
+                <p data-translate="weekends">Сб-Вс: 9:00 - 23:00</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="followUs">СЛЕДИТЕ ЗА НАМИ</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-translate="footer">© 2024 Coffee House. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

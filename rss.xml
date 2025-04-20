@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>Coffee House</title>
+        <link>https://example.com</link>
+        <description>Последние новости и акции от Coffee House</description>
+        <language>ru</language>
+
+        <item>
+            <title>Счастливые часы</title>
+            <link>https://example.com/promotions.html#happy-hours</link>
+            <description>С 15:00 до 17:00 скидка 20% на все напитки</description>
+            <pubDate>Mon, 01 Jan 2024 12:00:00 +0000</pubDate>
+        </item>
+
+        <item>
+            <title>День рождения</title>
+            <link>https://example.com/promotions.html#birthday</link>
+            <description>В день рождения получите бесплатный десерт при заказе любого напитка</description>
+            <pubDate>Mon, 01 Jan 2024 12:00:00 +0000</pubDate>
+        </item>
+
+        <item>
+            <title>Семейный уикенд</title>
+            <link>https://example.com/promotions.html#family-weekend</link>
+            <description>По выходным скидка 15% на завтраки для всей семьи</description>
+            <pubDate>Mon, 01 Jan 2024 12:00:00 +0000</pubDate>
+        </item>
+    </channel>
+</rss>
